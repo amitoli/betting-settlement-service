@@ -22,19 +22,26 @@ A backend application that simulates sports betting event outcome handling and b
 
 ### 1. Start Kafka with Docker Compose
 
+```
 docker-compose up -d
+```
 
 
 ### 2. Wait for Kafka to be Ready
 
-Wait about 30-60 seconds for Kafka to fully initialize. You can check the logs:
+Wait about 30-60 seconds for Kafka to fully initialize.
 
 ### 3. Run the Application
-- mvn clean install
-- mvn spring-boot:run
+```
+mvn clean install
+```
+
+```
+mvn spring-boot:run
+```
 
 
-The application will start on `http://localhost:8080`
+The application will start on ```http://localhost:8080```
 
 ### 4. Access Kafka UI (Optional)
 
@@ -48,15 +55,15 @@ Access Kafka UI at `http://localhost:8090` to monitor:
 
 ### Publish Event Outcome
 
-``
-curl -X POST http://localhost:8080/api/events/outcome
+```
+curl -X POST http://localhost:8080/api/event-outcomes
 -H "Content-Type: application/json"
 -d '{
 "eventId": "event1",
 "eventName": "Team A vs Team B",
 "eventWinnerId": "team1"
 }'
-``
+```
 
 ### View Database (H2 Console)
 
@@ -64,6 +71,3 @@ Access the H2 console at: `http://localhost:8080/h2-console`
 - JDBC URL: `jdbc:h2:mem:testdb`
 - Username: `sa`
 - Password: `password`
-
-## Docker Commands
-
